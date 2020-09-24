@@ -1,4 +1,9 @@
 <?php
+/*
+ * Все элементы массива $list начиная с первого, один за другим? сравниваются с искомым числом $find.
+ * Когда совпадение найдено программа выходит из цикла.
+ */
+
 function search_linear($array, $item)
 {
     $step = 0;
@@ -8,6 +13,12 @@ function search_linear($array, $item)
             return [$key, $step];
         }
     }
+//    for ($i=1; $i<=count($array); $i++) {
+//        $step++;
+//        if ($array[$i] == $item) {
+//            return [$i, $step];
+//        }
+//    }
     return null;
 }
 
@@ -23,11 +34,6 @@ if ($res != null) {
 } else {
     echo "Value $find  not found.";
 }
-
-/*
- * Все элементы массива $list начиная с первого, один за другим сравниваются с искомым $find.
- * Когда совпадение найдено цикл программа выходит из цикла.
- */
 ?>
 <!doctype html>
 <html lang="en">
