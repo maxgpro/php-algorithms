@@ -29,20 +29,22 @@ function search_binary($array, $item, $first, $last)
         }
     }
 }
-$list = range(1, 1000000);
-$find = $_GET['find'];
-$first = 0;
-$last = count($list) - 1;
+if (isset($_GET['find'])) {
+    $list = range(1, 1000000);
+    $find = $_GET['find'];
+    $first = 0;
+    $last = count($list) - 1;
 
-$start = hrtime(true);
-$res = search_binary($list, $find, $first, $last);
-$finish = hrtime(true);
-if ($res != null) {
-    $time = $finish - $start;
-    $time = $time/1e+6; //nanoseconds to milliseconds
-    echo "Value $find found at $res[0] position in $time milliseconds and $res[1] steps.";
-} else {
-    echo "Value $find  not found.";
+    $start = hrtime(true);
+    $res = search_binary($list, $find, $first, $last);
+    $finish = hrtime(true);
+    if ($res != null) {
+        $time = $finish - $start;
+        $time = $time/1e+6; //nanoseconds to milliseconds
+        echo "Value $find found at $res[0] position in $time milliseconds and $res[1] steps.";
+    } else {
+        echo "Value $find  not found.";
+    }
 }
 ?>
 <!doctype html>
